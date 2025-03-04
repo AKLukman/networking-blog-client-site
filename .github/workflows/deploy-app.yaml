@@ -17,11 +17,13 @@ jobs:
       
       - name: install dependecies
         run: npm install --frozen-lockfile
+      - name: test code
+        run: echo "testing code"
 
   build-code:
     runs-on: ubuntu-latest
+    needs: test-code
     steps:
-     
       
       - name: install nodeJs
         uses: actions/setup-node@v4
@@ -34,8 +36,17 @@ jobs:
       
       - name: install dependecies
         run: npm install --frozen-lockfile
+
       - name: build the code
         run: npm run build
+  
+  deploy-code:
+    runs-on: ubuntu-latest
+    needs: build-code
+
+    steps:
+      - name: deploy the code
+        run: echo "code deployed"
 
 
 
