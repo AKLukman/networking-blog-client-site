@@ -12,6 +12,8 @@ jobs:
           node-version: 20.18.3
       - name: check node version
         run: node -v
+      - name: install dependecies
+        run: npm install --frozen-lockfile
 
         
 
