@@ -4,9 +4,14 @@ jobs:
   test-code: 
     runs-on: ubuntu-latest
     steps:
-      - name: print working directory
-        run: |
-         node -v
-         git -v
+      - name: copying the code
+        uses: actions/checkout@v4
+      - name: install nodeJs
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.18.3
+      - name: check node version
+        run: node -v
+
         
 
