@@ -6,14 +6,36 @@ jobs:
     steps:
       - name: copying the code
         uses: actions/checkout@v4
+      
       - name: install nodeJs
         uses: actions/setup-node@v4
         with:
           node-version: 20.18.3
+     
       - name: check node version
         run: node -v
+      
       - name: install dependecies
         run: npm install --frozen-lockfile
 
-        
+  build-code:
+    runs-on: ubuntu-latest
+    steps:
+     
+      
+      - name: install nodeJs
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.18.3
+
+      - name: copying the code
+        uses: actions/checkout@v4
+     
+      
+      - name: install dependecies
+        run: npm install --frozen-lockfile
+      - name: build the code
+        run: npm run build
+
+
 
